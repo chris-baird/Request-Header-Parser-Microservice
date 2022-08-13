@@ -1,10 +1,12 @@
 const express = require("express")
-
+const cors = require('cors');
 const PORT = process.env.PORT || 8080
 
 const app = express()
 
 app.use(express.json())
+
+app.use(cors({ optionsSuccessStatus: 200 }));
 
 app.use('/api/whoami', (req, res) => {
   let json = {
